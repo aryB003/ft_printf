@@ -1,31 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   print_char.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/04 16:51:16 by root              #+#    #+#             */
-/*   Updated: 2025/04/05 20:30:43 by root             ###   ########.fr       */
+/*   Created: 2025/04/04 16:50:46 by root              #+#    #+#             */
+/*   Updated: 2025/04/04 20:45:04 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
+#include "printf.h"
 
-#include <stdarg.h>
-#include <unistd.h>
-#include <stddef.h>
-#include <stdlib.h>
-#include <string.h>
-#include <limits.h>
-
-int ft_printf(char *form, ...);
-int ft_printchar(int ch);
-int ft_print_hexx(unsigned int nb, char c);
-int ft_print_id(int nb);
-int ft_print_ptr(void *ptr);
-int ft_print_str(char *str);
-int ft_print_u(unsigned int u);
-
-#endif 
+int ft_printchar(int ch)
+{
+    write(1, &ch, 1);
+    return(1);
+}
