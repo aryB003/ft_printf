@@ -6,11 +6,29 @@
 /*   By: abardhan <abardhan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 22:53:06 by abardhan          #+#    #+#             */
-/*   Updated: 2025/04/06 15:09:41 by abardhan         ###   ########.fr       */
+/*   Updated: 2025/04/09 21:36:16 by abardhan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+char	*ft_strchr(const char *s, int c)
+{
+	unsigned int	i;
+	char			cc;
+
+	cc = (char)c;
+	i = 0;
+	while (s[i] != '\0')
+	{
+		if (s[i] == cc)
+			return ((char *)&s[i]);
+		i++;
+	}
+	if (s[i] == cc)
+		return ((char *)&s[i]);
+	return (NULL);
+}
 
 int	check_form(va_list args, char type)
 {
@@ -45,15 +63,17 @@ int	ft_printf(const char *form, ...)
 	va_start(args, form);
 	while (form[i] != '\0')
 	{
-		if (form[i] == '%')
+		if (form[i] == '%' && form[i + 1] != 0)
 		{
-			count += check_form(args, form[i + 1]);
 			i++;
+			if (ft_strchr("cspdiuxX%", form[i]))
+				count += check_form(args, form[i]);
+			else
+				count += ft_printchar(form[i]);
 		}
 		else
 			count += ft_printchar(form[i]);
-		if (form[i] != '\0')
-			i++;
+		i++;
 	}
 	va_end(args);
 	return (count);

@@ -6,7 +6,7 @@
 #    By: abardhan <abardhan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/05 22:51:51 by abardhan          #+#    #+#              #
-#    Updated: 2025/04/06 12:53:00 by abardhan         ###   ########.fr        #
+#    Updated: 2025/04/09 21:43:28 by abardhan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,13 +20,13 @@ RM = rm -f
 
 INCLUDES = ft_printf.h
 
-SRCS = printf.c \
-       print_char.c \
-       print_hex_X.c \
-	   print_id.c \
-	   print_ptr.c \
-	   print_str.c \
-	   print_uint.c
+SRCS =  printf.c \
+		print_char.c \
+        print_hex_X.c \
+	    print_id.c \
+	    print_ptr.c \
+	    print_str.c \
+	    print_uint.c
 
 OBJS = $(SRCS:.c=.o)
 
